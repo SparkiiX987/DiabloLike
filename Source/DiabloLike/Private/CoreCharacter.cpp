@@ -27,6 +27,7 @@ void ACoreCharacter::SetupPlayerInputComponent(UInputComponent* PlayerInputCompo
 void ACoreCharacter::TakeDamages(float _amount)
 {
 	currentHealth -= _amount;
+	OnHealthChange();
 	if (currentHealth <= 0)
 	{
 		bIsDead = true;
@@ -39,6 +40,7 @@ void ACoreCharacter::Heal(float _amount)
 	if (currentHealth == maxHealth) { return; }
 
 	currentHealth = currentHealth + _amount > maxHealth ? maxHealth : currentHealth + _amount;
+	OnHealthChange();
 }
 
 void ACoreCharacter::Revive()
@@ -47,6 +49,7 @@ void ACoreCharacter::Revive()
 
 	currentHealth = maxHealth * 1.25f;
 	bIsDead = false;
+	OnHealthChange();
 }
 
 void ACoreCharacter::ModifyHealth(float _amount)

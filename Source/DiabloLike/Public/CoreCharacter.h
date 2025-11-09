@@ -70,4 +70,7 @@ public:
 
 	UFUNCTION(BlueprintCallable, BlueprintImplementableEvent, Category = "Character Functions")
 	void Attack();
+
+	UFUNCTION(BlueprintCallable, BlueprintImplementableEvent, Category = "Character Functions")
+	void OnHealthChange();
 };
