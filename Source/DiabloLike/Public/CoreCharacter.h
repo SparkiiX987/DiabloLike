@@ -2,6 +2,7 @@
 
 #include "CoreMinimal.h"
 #include "GameFramework/Character.h"
+#include "CharacterStats.h"
 #include "CoreCharacter.generated.h"
 
 UCLASS()
@@ -35,6 +36,11 @@ protected:
 
 	UPROPERTY(BlueprintReadWrite, Category = "Character stats")
 	bool bIsDead;
+
+	UFUNCTION()
+	float DamagesMitigation(float _baseDamage);
+
+	
 
 public:	
 	virtual void Tick(float DeltaTime) override;
@@ -73,4 +79,7 @@ public:
 
 	UFUNCTION(BlueprintCallable, BlueprintImplementableEvent, Category = "Character Functions")
 	void OnHealthChange();
+
+	UFUNCTION(BlueprintCallable, Category = "Character Stats")
+	void SetupStats(UCharacterStats* _stats);
 };
