@@ -8,11 +8,6 @@ void ADungeonGamemode::StartDungeon()
         return;
     }
 
-    if (GEngine)
-    {
-        GEngine->AddOnScreenDebugMessage(-1, 15.0f, FColor::Red, TEXT("World"));
-    }
-
     dungeonGenerator = (AGridBasedGenerationBase*)world->SpawnActor(dungeonGeneration);
     dungeonGenerator->OnGenerationEnd.AddDynamic(this, &ADungeonGamemode::SpawnPlayer);
     dungeonGenerator->OnGenerationEnd.AddDynamic(this, &ADungeonGamemode::SpawnEnemiesAndObject);
@@ -66,7 +61,7 @@ void ADungeonGamemode::SpawnEnemiesAndObject()
     }
 }
 
-bool ADungeonGamemode::SpawnEnemie(TArray<int> _roomsIndexWitEnemies, UWorld* _world)
+bool ADungeonGamemode::SpawnEnemie(TArray<int>& _roomsIndexWitEnemies, UWorld* _world)
 {
     int randomRoomIndex = FMath::RandRange(1, dungeonGenerator->GetRoomNumber() - 1);
     if (_roomsIndexWitEnemies.Contains(randomRoomIndex))
@@ -90,7 +85,7 @@ bool ADungeonGamemode::SpawnEnemie(TArray<int> _roomsIndexWitEnemies, UWorld* _w
     return true;
 }
 
-bool ADungeonGamemode::SpawnItem(TArray<int> _roomsIndexWitEnemies, UWorld* _world)
+bool ADungeonGamemode::SpawnItem(TArray<int>& _roomsIndexWitEnemies, UWorld* _world)
 {
     int randomRoomIndex = FMath::RandRange(1, dungeonGenerator->GetRoomNumber() - 1);
     if (_roomsIndexWitEnemies.Contains(randomRoomIndex))

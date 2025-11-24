@@ -81,11 +81,6 @@ void AGridBasedGenerationBase::GenerateRooms()
 			int randomSizeX = FMath::RandRange(minRoomSize.X, maxRoomSize.X);
 			int randomSizeY = FMath::RandRange(minRoomSize.Y, maxRoomSize.Y);
 
-			if (GEngine)
-			{
-				GEngine->AddOnScreenDebugMessage(-1, 15.0f, FColor::Red, TEXT("Room size : " + FString::FromInt(randomSizeX) + ", " + FString::FromInt(randomSizeX)));
-			}
-
 			if (IsRoomValid(randomPosX, randomPosY, randomSizeX, randomSizeY))
 			{
 				roomsCenter.Add(FIntPoint(randomPosX + randomSizeX / 2, randomPosY + randomSizeY / 2));

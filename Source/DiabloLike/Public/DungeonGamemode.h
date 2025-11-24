@@ -38,8 +38,8 @@ protected:
 	void SpawnEnemiesAndObject();
 
 	UFUNCTION()
-	bool SpawnEnemie(TArray<int> _roomsIndexWitEnemies, UWorld* _world);
+	bool SpawnEnemie(TArray<int>& _roomsIndexWitEnemies, UWorld* _world);
 
 	UFUNCTION()
-	bool SpawnItem(TArray<int> _roomsIndexWitEnemies, UWorld* _world);
+	bool SpawnItem(TArray<int>& _roomsIndexWitEnemies, UWorld* _world);
 };
