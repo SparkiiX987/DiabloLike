@@ -28,7 +28,7 @@ FIntPoint AGridBasedGenerationBase::GetRoomCenter(int _cellIndex)
 
 const int32 AGridBasedGenerationBase::GetRoomNumber() const
 {
-	return roomNumber;
+	return roomsCenter.Num();
 }
 
 void AGridBasedGenerationBase::BeginPlay()
