@@ -2,6 +2,7 @@
 
 #include "CoreMinimal.h"
 #include "GameFramework/Actor.h"
+#include <Components/BoxComponent.h>
 #include "BaseItem.h"
 #include "ItemActor.generated.h"
 
@@ -17,7 +18,13 @@ protected:
 	virtual void BeginPlay() override;
 
 	UPROPERTY(BlueprintReadWrite, EditAnywhere, meta = (ExposeOnSpawn = "true"))
+	TObjectPtr<UBoxComponent> collider;
+
+	UPROPERTY(BlueprintReadWrite, EditAnywhere, meta = (ExposeOnSpawn = "true"))
 	TObjectPtr<UStaticMeshComponent> mesh;
+
+	UPROPERTY(BlueprintReadWrite, EditAnywhere, meta = (ExposeOnSpawn = "true"))
+	TObjectPtr<USkeletalMeshComponent> skeletalMesh;
 
 	UPROPERTY(BlueprintReadWrite, EditAnywhere)
 	TObjectPtr<UBaseItem> itemContained;

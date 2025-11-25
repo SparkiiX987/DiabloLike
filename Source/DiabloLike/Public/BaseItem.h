@@ -20,6 +20,9 @@ public:
 	TObjectPtr<UStaticMesh> itemMesh;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	TObjectPtr<USkeletalMesh> itemSkeletalMesh;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	TObjectPtr<UMaterialInterface> itemImage;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
